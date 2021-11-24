@@ -8,6 +8,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [{
                 test: /\.js$/,
@@ -23,14 +26,14 @@ module.exports = {
                 }, ],
             },
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: [
                     MiniCssExtractPlugin.loader, 'css-loader',
-                ],
+                ]
             },
             {
                 test: /\.svg$/,
-                type: 'asset/resource',
+                loader: 'url-loader',
             },
         ],
     },
